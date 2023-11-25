@@ -1,0 +1,1 @@
+web gunicorn firstsupplies.wsgi:apllication --log-file -
