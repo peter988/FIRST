@@ -1,0 +1,477 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRST</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/brittany-signature" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Open+Sans&family=Rubik&display=swap" rel="stylesheet">
+    <style>
+        /* Reset some default styles */
+body, h1, h2, p, ul,a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f6f6f6;
+    color: #333;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 60px;
+}
+
+.nav-links a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #FF6F61;
+}
+
+/* Hero section styles */
+.hero {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+.hero-logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+/* Features section styles */
+.features {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.feature {
+    flex: 0 0 30%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.feature-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.feature-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.feature-description {
+    color: #666;
+}
+
+/* Testimonial section styles */
+.testimonial-section {
+    background-color: #f6f6f6;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.testimonial {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.testimonial-text {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: #FF6F61;
+}
+
+/* Footer styles */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
+}
+
+.footer-text {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-links a:hover {
+    color: #FF6F61;
+}
+/* Add these styles at the end of your existing style.css file */
+
+/* About Us Section */
+.about-us {
+    background-color: #f8f8f8;
+    padding: 80px 0;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.about-text {
+    font-size: 1.4rem;
+    color: #555;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+
+.about-subtitle {
+    font-size: 1.8rem;
+    color: #333;
+    margin-top: 40px;
+}
+
+/* Leadership Team Section */
+.leadership-team {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.leader {
+    text-align: center;
+    max-width: 540px;
+    margin: 0 20px;
+}
+
+.leader-img {
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.leader-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.leader-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.leader-role {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-text {
+        font-size: 1.2rem;
+    }
+
+    .about-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .leadership-team {
+        flex-wrap: wrap;
+    }
+
+    .leader {
+        margin: 0 10px 20px;
+    }
+}
+/* Add these styles to your existing style.css file */
+
+.carousel-btn {
+    cursor: pointer;
+    font-size: 2rem;
+    color: #333;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+    background-color: #ddd;
+}
+#prevLeaderBtn,
+#nextLeaderBtn {
+  position: absolute;
+  top: 350%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#prevLeaderBtn {
+  left: 102px;
+}
+
+#nextLeaderBtn {
+  right: 102px;
+}
+.buy-button {
+    flex: 0 0 30%;
+    padding: 10px;
+    width: 290px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .buy-button:hover{
+    color: #3498db;
+    background-color: white;
+    transition: background-color 0.3s;
+  }
+  @media only screen and (max-width: 768px) {
+    .features{display: block;}
+  }
+
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <img class="logo" src="{% static 'logo.jpeg' %}" alt="Logo">
+        <div class="nav-links">
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+            <a href="/contact-us">Contact Us</a>
+        </div>
+    </div>
+
+    <header class="hero">
+        <img class="hero-image" src="{% static 'farag2.png' %}" alt="Hero Image">
+        <div class="hero-content">
+            <img class="hero-logo" src="{% static 'first1.png' %}" alt="Hero Logo">
+            <p class="hero-title">Your Trusted Auto Partner</p>
+        </div>
+    </header>
+
+    <section id="products" class="features">
+        <div class="feature">
+            <img class="feature-image" src="{% static 'farag3.png' %}" alt="Feature Image">
+            <div class="feature-text">
+                <h2 class="feature-title">Quality Vehicles</h2>
+                <p class="feature-description">Explore our brand new models with the latest technology and design.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <img class="feature-image" src="{% static 'farag13.png' %}" alt="Feature Image">
+            <div class="feature-text">
+                <h2 class="feature-title">Exceptional Service</h2>
+                <p class="feature-description">Our 24/7 service ensures your vehicle stays in top condition.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <img class="feature-image" src="{% static 'farag4.png' %}" alt="Feature Image">
+            <div class="feature-text">
+                <h2 class="feature-title">Customer Testimonials</h2>
+                <p class="feature-description">See what our satisfied customers have to say about our services.</p>
+            </div>
+        </div>
+        <center><a href="/services"><button class="buy-button">Shop Our Products</button></a></center>
+    </section>
+
+    <section id="about" class="testimonial-section">
+        <div class="testimonial">
+            <p class="testimonial-text">"My car badly needed repair so early in the morning and Micharlet Auto came thru at 4:30 am! Talk about excellent customer service!"</p>
+            <p class="testimonial-author">- Matthew Pace</p>
+        </div>
+
+        <div class="testimonial">
+            <p class="testimonial-text">"The brand new models available at the showroom made it hard for me to choose—they were all so good, and I wanted them all!"</p>
+            <p class="testimonial-author">- Casper Zoltan</p>
+        </div>
+    </section>
+
+    <section id="about" class="about-us">
+        <div class="about-content">
+            <h2 class="about-title">About Us</h2>
+            <p class="about-text">First Supplies Import & Export is the American subsidiary of a successful Egyptian parent
+                company, with a focus on importing and exporting automotive parts. With Ms. Hana’s innovative leadership
+                and Mr. Farag’s operational expertise, the company is poised to capitalize on the burgeoning market for
+                automotive parts in the United States.</p>
+
+            <h3 class="about-subtitle">Business Operations</h3>
+            <p class="about-text">The company specializes in the import of truck parts from diverse international markets
+                and the export of junk cars to strategic global locations. The U.S. entity will leverage the established
+                networks and expertise of its Egyptian counterpart to gain a competitive edge in the American market.</p>
+
+            <h3 class="about-subtitle">Leadership Team</h3>
+            <p class="about-text">Margrett Hana, a business owner with extensive experience in web development and a
+                strong foundation in business management, will lead as the CEO. She has successfully expanded the
+                Egyptian business internationally, showcasing her expertise in banking, accounting, and global trade
+                dynamics. Farag Farag brings over 20 years of experience in the industry and will be responsible for
+                the daily operational management of the U.S. subsidiary. Their combined expertise forms a robust
+                leadership team capable of driving the company to new heights.</p>
+
+        </div>
+        <!-- Leadership Team section -->
+        <section id="leadership" class="section">
+            <div class="container">
+                <div class="leadership-team">
+                    <div class="leader" id="leader1">
+                        <!-- Leader 1 content -->
+                        <img src="{% static 'margrett.jpeg' %}" alt="Leader 1">
+                        <h3>Margrett Hana</h3>
+                        <p>CEO</p>
+                        <!-- Additional details about Margrett Hana -->
+                    </div>
+                    <div class="leader" id="leader2">
+                        <!-- Leader 2 content -->
+                        <img src="{% static 'farag.jpeg' %}" alt="Leader 2">
+                        <h3>Farag Farag</h3>
+                        <p>Operational Manager</p>
+                        <!-- Additional details about Farag Farag -->
+                    </div>
+                    <!-- Add more leader elements as needed -->
+                </div>
+                <div id="prevLeaderBtn" class="carousel-btn">&lt;</div>
+                <div id="nextLeaderBtn" class="carousel-btn">&gt;</div>
+            </div>
+        </section>
+
+    </section>
+
+    <footer class="footer">
+        <p class="footer-text">© 2023 First Supplies Import & Export</p>
+        <div class="footer-links">
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+        </div>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="{% static 'typed.js' %}"></script>
+   <!-- Add this script at the end of your HTML file, just before </body> -->
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+  
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+  
+    // Image carousel for leadership team section
+    document.addEventListener('DOMContentLoaded', function() {
+        var currentLeader = 0;
+        var leaders = document.querySelectorAll('.leader');
+        
+        function showLeader(index) {
+          leaders.forEach(function(leader, i) {
+            leader.style.display = i === index ? 'block' : 'none';
+          });
+        }
+      
+        document.getElementById('nextLeaderBtn').addEventListener('click', function() {
+          currentLeader = (currentLeader + 1) % leaders.length;
+          showLeader(currentLeader);
+        });
+      
+        document.getElementById('prevLeaderBtn').addEventListener('click', function() {
+          currentLeader = (currentLeader - 1 + leaders.length) % leaders.length;
+          showLeader(currentLeader);
+        });
+      
+        // Show the initial leader
+        showLeader(currentLeader);
+      });
+      
+      
+  </script>
+  
+</body>
+</html>
